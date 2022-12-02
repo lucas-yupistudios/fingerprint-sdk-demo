@@ -388,7 +388,7 @@ class CameraActivity : AppCompatActivity() {
 }
 ```
 
-### Person Object
+### Person
 
 ```Kotlin
 object Person {
