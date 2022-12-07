@@ -22,7 +22,8 @@ dependencies {
 - Android Gradle Plugin Version: 3.5.2 or higher
 - A device with a camera
 - License key
-- Internet connection is required to verify the license
+- BioPass ID API key
+- Internet connection is required
 ```
 
 Change the minimum Android sdk version to 21 (or higher) in your `app/build.gradle` file.
@@ -91,6 +92,8 @@ We will use Android Studio for the following steps,
 
 # Example
 
+For this example we used [Enroll](https://docs.biopassid.com/#c5743ec5-c513-4f32-ab41-91854a85200c) from the Multibiometrics package.
+
 ## EnrollPersonRequest
 
 ```Kotlin
@@ -128,6 +131,8 @@ data class PersonResponse(
 
 ## BioPassIDApi
 
+Here, you will need an [API key](https://panel.biopassid.com/pricing?menu=multibiometrics) to be able to make requests to the BioPass ID API.
+
 ```Kotlin
 interface BioPassIDApi {
     @Headers("Content-Type: application/json", "Ocp-Apim-Subscription-Key: your-api-key")
@@ -142,7 +147,7 @@ interface BioPassIDApi {
 class Network {
     companion object {
 
-        /** Retorna uma Instância do Client Retrofit para Requisições
+        /** Returns a Client Retrofit Instance for Requests
          */
         fun getRetrofitInstance() : BioPassIDApi {
             return Retrofit.Builder()
